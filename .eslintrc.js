@@ -28,7 +28,7 @@ module.exports = {
     'no-use-before-define': ['error', { 'variables': false }],
     'object-curly-spacing': ['error', 'always'],
     'object-curly-newline': ['error', {
-      'ObjectPattern': { 'multiline': false, 'minProperties': 6 },
+      'ObjectPattern': { 'multiline': false, 'minProperties': 7 },
   }],
     'template-curly-spacing': ['error', 'always'],
   },
