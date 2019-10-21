@@ -39,16 +39,15 @@ class StudentController {
 
     // Check if the student is already registered.
     const studentExists = await Student.findOne({ where: { email: req.body.email } });
-    console.log('studentExists: ', studentExists);
 
     if (studentExists) {
       return res.status(422).json({ error: 'Student already exists.' });
     }
 
     // Create a new student.
-    const { id, name, email, age, weight, height } = await Student.create(req.body);
+    const student = await Student.create(req.body);
 
-    return res.status(201).json({ id, name, email, age, weight, height });
+    return res.status(201).json(student);
   }
 
   async update(req, res) {
@@ -76,9 +75,9 @@ class StudentController {
     }
 
     // Update student.
-    const { name, email, age, weight, height } = await student.update(req.body);
+    const updatedStudent = await student.update(req.body);
 
-    return res.json({ id, name, email, age, weight, height });
+    return res.json(updatedStudent);
   }
 }
 
