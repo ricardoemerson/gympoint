@@ -84,7 +84,7 @@ class PlanController {
       return res.status(404).json({ error: 'Plan not found.' });
     }
 
-    // Update plan.
+    // Delete plan.
     await plan.destroy();
 
     return res.status(204).json();
