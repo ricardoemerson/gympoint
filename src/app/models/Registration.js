@@ -1,5 +1,4 @@
 import Sequelize, { Model } from 'sequelize';
-import { threadId } from 'worker_threads';
 
 class Registration extends Model {
   static init(sequelize) {
