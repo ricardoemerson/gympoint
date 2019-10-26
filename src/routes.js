@@ -4,9 +4,10 @@ import UserController from './app/controllers/UserController';
 import SessionController from './app/controllers/SessionController';
 import PlanController from './app/controllers/PlanController';
 import RegistrationController from './app/controllers/RegistrationController';
+import StudentController from './app/controllers/StudentController';
+import CheckinController from './app/controllers/CheckinController';
 
 import authMiddleware from './app/middlewares/auth';
-import StudentController from './app/controllers/StudentController';
 
 const routes = new Router();
 
@@ -39,5 +40,9 @@ routes.get('/registrations/:id', RegistrationController.show);
 routes.post('/registrations', RegistrationController.store);
 routes.put('/registrations/:id', RegistrationController.update);
 routes.delete('/registrations/:id', RegistrationController.delete);
+
+// Checkins Resource.
+routes.get('/students/:student_id/checkins', CheckinController.index);
+routes.post('/students/:student_id/checkins', CheckinController.store);
 
 export default routes;
