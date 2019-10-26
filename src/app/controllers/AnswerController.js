@@ -3,6 +3,9 @@ import * as Yup from 'yup';
 import HelpOrder from '../models/HelpOrder';
 import Student from '../models/Student';
 
+import Queue from '../../lib/Queue';
+import AnswerMail from '../jobs/AnswerMail';
+
 class AnswerController {
   async index(req, res) {
     const answers = await HelpOrder.findAll({
@@ -33,7 +36,7 @@ class AnswerController {
       include: {
         model: Student,
         as: 'student',
-        attributes: ['id', 'name'],
+        attributes: ['id', 'name', 'email'],
       },
     });
 
@@ -42,14 +45,13 @@ class AnswerController {
     }
 
     // Update an answer.
-    const { answer } = req.body;
+    helpOrder.answer = req.body.answer;
+    helpOrder.answer_at = new Date();
+    await helpOrder.save();
 
-    const helpOrderUpdated = await helpOrder.update({
-      answer,
-      answer_at: new Date(),
-    });
+    await Queue.add(AnswerMail.key, { helpOrder });
 
-    return res.json(helpOrderUpdated);
+    return res.json(helpOrder);
   }
 }
 
