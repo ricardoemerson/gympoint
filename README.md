@@ -48,7 +48,7 @@ Abaixo todos os requisitos solicitados para a realização do desafio da aplica�
 
 ## :rocket: Sobre o desafio
 
-## Parte 1 do desafio:
+### Primeira parte do desafio
 
 A aplicação que iremos dar início ao desenvolvimento a partir de agora é um app gerenciador de academia, o **Gympoint**.
 
@@ -125,7 +125,7 @@ O cadastro de alunos só pode ser feito por administradores autenticados na apli
 
 O aluno não pode se autenticar no sistema, ou seja, não possui senha.
 
-## Parte 2 do desafio:
+### Segunda parte do desafio
 
 Durante esse desafio vamos aprimorar a aplicação Gympoint que demos início no desafio anterior implementando funcionalidades que aprendemos durante as aulas até agora.
 
