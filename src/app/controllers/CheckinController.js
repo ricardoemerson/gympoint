@@ -20,7 +20,7 @@ class CheckinController {
       include: {
         model: Student,
         as: 'student',
-        attributes: ['id', 'name'],
+        attributes: ['id', 'name', 'email'],
       },
     });
 

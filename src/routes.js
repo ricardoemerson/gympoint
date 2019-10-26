@@ -6,6 +6,8 @@ import PlanController from './app/controllers/PlanController';
 import RegistrationController from './app/controllers/RegistrationController';
 import StudentController from './app/controllers/StudentController';
 import CheckinController from './app/controllers/CheckinController';
+import HelpOrderController from './app/controllers/HelpOrderController';
+import AnswerController from './app/controllers/AnswerController';
 
 import authMiddleware from './app/middlewares/auth';
 
@@ -44,5 +46,13 @@ routes.delete('/registrations/:id', RegistrationController.delete);
 // Checkins Resource.
 routes.get('/students/:student_id/checkins', CheckinController.index);
 routes.post('/students/:student_id/checkins', CheckinController.store);
+
+// Help Orders Resource.
+routes.get('/students/:student_id/help_orders', HelpOrderController.index);
+routes.post('/students/:student_id/help_orders', HelpOrderController.store);
+
+// Answers Resource.
+routes.get('/answers', AnswerController.index);
+routes.post('/help-orders/:help_order_id/answers', AnswerController.store);
 
 export default routes;

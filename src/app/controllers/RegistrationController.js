@@ -72,14 +72,14 @@ class RegistrationController {
 
     const { start_date, plan_id, student_id } = req.body;
 
-    // Check if the plan is exists.
+    // Check if the plan exists.
     const plan = await Plan.findByPk(plan_id);
 
     if (!plan) {
       return res.status(404).json({ error: 'Plan not found.' });
     }
 
-    // Check if the student is exists.
+    // Check if the student exists.
     const student = await Student.findByPk(student_id);
 
     if (!student) {
@@ -141,14 +141,14 @@ class RegistrationController {
 
     const { start_date, plan_id, student_id } = req.body;
 
-    // Check if the plan is exists.
+    // Check if the plan exists.
     const plan = await Plan.findByPk(plan_id);
 
     if (!plan) {
       return res.status(404).json({ error: 'Plan not found.' });
     }
 
-    // Check if the student is exists.
+    // Check if the student exists.
     const student = await Student.findByPk(student_id);
 
     if (!student) {
