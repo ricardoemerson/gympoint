@@ -21,7 +21,7 @@ Abaixo todos os requisitos solicitados para a realização do desafio da aplica�
 </h1>
 
 <h3 align="center">
-  Desafio 3: Gympoint, continuando a aplicação
+  Desafio 3: Gympoint - Gerenciador de academia.
 </h3>
 
 <blockquote align="center">“Faça seu melhor, mas sempre com prazo de entrega”!</blockquote>
@@ -81,17 +81,17 @@ yarn sequelize seed:generate --name admin-user
 No arquivo gerado na pasta `src/database/seeds` adicione o código referente à criação de um usuário administrador:
 
 ```js
-const bcrypt = require("bcryptjs");
+const bcrypt = require('bcryptjs');
 
 module.exports = {
   up: QueryInterface => {
     return QueryInterface.bulkInsert(
-      "users",
+      'users',
       [
         {
-          name: "Administrador",
-          email: "admin@gympoint.com",
-          password_hash: bcrypt.hashSync("123456", 8),
+          name: 'Administrador',
+          email: 'admin@gympoint.com',
+          password_hash: bcrypt.hashSync('123456', 8),
           created_at: new Date(),
           updated_at: new Date()
         }
