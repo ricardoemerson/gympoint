@@ -1,10 +1,23 @@
 import * as Yup from 'yup';
+import { Op } from 'sequelize';
 
 import Student from '../models/Student';
 
 class StudentController {
   async index(req, res) {
-    const students = await Student.findAll();
+    const { page = 1 } = req.query;
+    const { q = '%' } = req.query;
+    const perPage = 5;
+
+    const students = await Student.findAll({
+      where: {
+        name: {
+          [Op.iLike]: `${ q }%`,
+        },
+      },
+      limit: perPage,
+      offset: (page - 1) * perPage,
+    });
 
     return res.json(students);
   }

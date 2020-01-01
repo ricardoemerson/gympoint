@@ -13,7 +13,7 @@ class RegistrationController {
       order: [['created_at', 'DESC']],
       limit: process.env.PER_PAGE,
       offset: (page - 1) * process.env.PER_PAGE,
-      attributes: ['id', 'start_date', 'end_date', 'price', 'createdAt', 'updatedAt'],
+      attributes: ['id', 'start_date', 'end_date', 'price', 'active', 'createdAt', 'updatedAt'],
       include: [
         {
           model: Student,
